@@ -1,0 +1,92 @@
+jQuery(document).ready(function($) {
+
+    //wrap gmap iframe
+    $('iframe[src*="www.google.com"]').wrap('<div class="acf-map"></div>');
+
+
+    //add caret to menu
+    $('.main-menu li').each(function() {
+
+        $(this).has('.sub-menu').append('<i class="fa fa-caret-down"></i>');
+
+    });
+
+
+    /*main nav sub menu*/
+    $('.main-menu li').hover(function() {
+        $(this).children('.sub-menu').toggle();
+    });
+
+
+    //sticky
+    var stickyOffset = $('.top-header').offset().top;
+
+    $(window).scroll(function() {
+
+        if ($(window).width() < 758) {
+
+            var sticky = $('.top-header'),
+                scroll = $(window).scrollTop();
+
+            if (scroll > stickyOffset) {
+
+                sticky.addClass('fixed');
+                $('.hide-fixed').hide();
+
+            } else {
+
+                sticky.removeClass('fixed');
+                $('.hide-fixed').show();
+
+            }
+
+        }
+
+    });
+
+    $(window).resize(function() {
+        if ($(window).width() > 758) {
+            $('.top-header').removeClass('fixed');
+            $('.hide-fixed').show();
+            $('.hide-resize').hide();
+        } else {
+            $('.hide-resize').show();
+        }
+    });
+
+
+    $('#slideout').mmenu({
+
+        offCanvas: {
+            position: "right"
+        }
+
+    });
+
+
+    //scrolltop
+    // hide #back-top first
+    $(".back-top").hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.back-top').fadeIn();
+            } else {
+                $('.back-top').fadeOut();
+            }
+        });
+
+        // scroll body to 0px on click
+        $('.back-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+
+
+
+});
