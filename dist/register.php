@@ -118,10 +118,10 @@ if (!$mail_check && $password == $conpass) {
 //Insert into database
 $insert = mysqli_query($con,"INSERT INTO reg (`fname`,`lname`,`email`,`password`) VALUES('$fname','$lname','$email','$conpass')");
 if($insert){
-    $search = $fetch['fname'];
+    $search = $fname;
 $_SESSION['name'] = $search;
-  $_SESSION['uemail'] = $fetch['email'];
-  $_SESSION['password'] = $fetch['password'];
+  $_SESSION['uemail'] = $email;
+  $_SESSION['password'] = $pass;
   echo "<script>";
   echo "alert 'signup successful'";
   echo "</script>";

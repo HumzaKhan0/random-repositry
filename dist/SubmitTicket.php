@@ -146,10 +146,10 @@ echo ('<img src="'.$get["screenshot"].'" width="200" onclick="window.open(this.h
                     Completed
                 </option>
                 <option value="1" selected="selected">
-                    Cancelled
+                    Pending
                 </option>
                 <option value="0">
-                    Pending
+                    Cancelled
                 </option>
             </select>
         </div>
@@ -173,7 +173,7 @@ else{echo '       <input type="file" name="image" id="inputAttachments" class="f
     <p class="text-center">
         <?php if(isset($_GET['id'])) {
       
-            echo '<button type="submit" name="alter" class="btn btn-primary mr-5">Update</button>';
+            echo '<button type="submit" name="alter" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button>';
 
                         echo '<button type="button" class="ml-5 btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Reply</button>';
         } 
@@ -230,7 +230,6 @@ else {
     $dept = $_POST['dept'];
     $priority = $_POST['priority'];
     $status = $_POST['status'];
-    echo $status;
     $msg = $_POST['message'];
     $tickid = $get['ticket_id'];
     $image_name = $get['screenshot'];
