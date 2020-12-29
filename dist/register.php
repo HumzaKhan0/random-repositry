@@ -119,7 +119,7 @@ if (!$mail_check && $password == $conpass) {
 $insert = mysqli_query($con,"INSERT INTO reg (`fname`,`lname`,`email`,`password`) VALUES('$fname','$lname','$email','$conpass')");
 if($insert){
     $search = $fname;
-$_SESSION['name'] = $search;
+$_SESSION['name'] = $fname;
   $_SESSION['uemail'] = $email;
   $_SESSION['password'] = $pass;
   echo "<script>";
