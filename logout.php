@@ -6,7 +6,7 @@
 	$_SESSION['id'] = 0;
 	if (empty($_SESSION['name'])) {
 		$_SESSION['userrole'] = "";
-header('location:login.php');
+header('location:http://assrsoftsolutions.com/');
 	}
 	else{
 		echo "<script> alert('logout failed please try again')";

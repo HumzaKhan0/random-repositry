@@ -125,7 +125,7 @@ $_SESSION['name'] = $fname;
   echo "<script>";
   echo "alert 'signup successful'";
   echo "</script>";
-//header('location: login.php');
+header('location: login.php');
 }
 }
             else if($mail_check)

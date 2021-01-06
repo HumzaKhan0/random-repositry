@@ -1,7 +1,6 @@
-
 <?php session_start();
-ob_start();
-include 'include/connection.php'; ?>
+include 'include/connection.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +37,7 @@ else
     SELECT * FROM ticket ORDER BY id ASC";
 }
 $result = mysqli_query($con, $query);    ?>
+
 
                     <div class="table-responsive">
                     <?php
@@ -92,53 +92,58 @@ $(function(){
 </script>
                 </div>
         <div id="layoutSidenav">
-            <?php include 'include/dashboard.php'; ?>
-            <script>document.getElementById("invoicenum").onkeydown=function(e){
-    if(((e.keyCode < 48) || (e.keyCode > 57))&& e.keyCode != 8){
-       alert ('only numeric characters are accepted');
-       return false;
-    } return true;
-};</script>
+            <?php include 'include/dashboard.php' ?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4 text-center"><?php  ?></h1>
-                        <center><h1>qutation Form</h1></center>
-<center><form method="POST" enctype="multipart/form-data" role="form">
-    <div class="row">
-        <div class="form-group col-sm-4">
-            <label for="inputName">Qutation Number</label>
-            <?php $qnumb = str_shuffle($_SESSION['name'].'12345');
-            $link = "qpage.php?tickid=".urlencode(base64_encode($qnumb));          
-                ?>
-            <input id="invoicenum" type="text" name="qnum" placeholder="qutation number" value="<?php echo $qnumb ?>" class="form-control">
-        </div>
-        <div class="form-group col-sm-4">
-            <label for="inputEmail">Qutation To</label>
-            <input type="email" name="qto" id="inputEmail" placeholder="qutation To" value="<?php //echo $mail ?>" class="form-control">
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-sm-4">
-            <label for="inputSubject"><b>Start Date</b></label><br>
-            <?php $srt_date = date("Y-m-d");
-            echo $srt_date;?>
-        </div>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active text-black"><a href="index.php">Index</a>\<a href="#">Sales</a></li>
+                        </ol>
+                        <div class="row">
 
-        <div class="form-group col-sm-5">
-            <label for="inputSubject"><b>End Date</b></label><br>
-            <input type="date" name="end_date">
+    <?php $dept = $_GET['dept'];
+     $subj = mysqli_query($con,"SELECT * from ticket where `dept` = '$dept'");
+    echo'     
+                            <div class="card-body">
 
-        </div>
-    </div>
-            <div class="form-group col-sm-5">
-        </div>
-                    <div class="form-group col-sm-8">
-            <center><button type="submit" name="submit">Submit</button></center>
-            </div>
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Ticket Id</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Response</th>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Ticket Id</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Response</th>
+                                        </tfoot>
+                                        <tbody>
+';
+    while ($fetch = mysqli_fetch_assoc($subj)) {
+        $id = $fetch['id'];
+?>
+                      
+                                            <tr>
+                                                <td><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['name']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['email']; ?></h6></a></td>
+                                                <td><div class="dropdown">
+  <a href="ticketform.php?id=<?php echo $fetch['id'] ?>" class="btn bg-dark text-white">
+    Response
+  </a>
+</div></td>
+                                                </tr>
+                                            
 
-</form>
-</center>
+<?php    } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                         </div>
         </main>
                 
@@ -154,32 +159,4 @@ $(function(){
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
     </body>
-<?php if (isset($_POST['submit'])) {
-    $qto = $_POST['qto'];
-    echo $qto;
-    $name = $_SESSION['name'];
-    echo $name;
-    $qnum = $_POST['qnum'];
-echo $qnum;
-    $end_date = $_POST['end_date'];
-    echo $end_date;
-    if (empty($qto) || empty($end_date)) {
-        echo "<script>
-alert ('Please Fill out the fields')
-        </script>";
-    }
-    else{
-    $insert = mysqli_query($con,"INSERT into qutation (`name`,`qutation_number`,`qutation_to`,`srt_date`,`end_date`) values ('$name','$qnum','$qto','$srt_date','$end_date')");
-    if ($insert) {
-    $select = mysqli_query($con,"SELECT * from qutation where `qutation_number` = '3m514aza2h'");
-$array = mysqli_fetch_array($select);
-echo $array['id'];
-header('location:qpage.php?tickid='.urlencode(base64_encode($qnumb)));
-    }
-else if(!$insert)
-{
-    echo 'not inserted';
-}
-}
-} ?>
 </html>

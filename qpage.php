@@ -51,6 +51,7 @@ if(mysqli_num_rows($result) > 0)
     $output .= '<div class="table-responsive">
                     <table class="table table bordered" id="myTable">
                         <tr>
+                            <th>Company Name</th>
                             <th>Customer Name</th>
                             <th>Address</th>
                             <th>City</th>

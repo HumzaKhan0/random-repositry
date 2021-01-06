@@ -18,7 +18,6 @@
     <link rel="shortcut icon" href="https://www.hosterpk.com/wp-content/themes/hosterpk/32x32.ico"> -->
     <link rel="stylesheet" id="RMFtooltip-css-css" href="./ticket_css/responsive-tooltip.css" type="text/css" media="all">
 
-y
 <!-- META TAGS -->
 <!-- Styling -->
 <link href="./ticket_css/css" rel="stylesheet">

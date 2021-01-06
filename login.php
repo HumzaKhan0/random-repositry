@@ -1,3 +1,6 @@
+    <?php $con = mysqli_connect("localhost","root","","assrsoft");
+    ob_start(); 
+    session_start();?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,21 +31,15 @@
                                                 <label class="small mb-1" for="inputPassword">Password</label>
                                                 <input class="form-control py-4" name="pass" id="inputPassword" type="password" placeholder="Enter password" />
                                             </div>
-                                            <!-- <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
-                                                </div>
-                                            </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">Forgot Password?</a>
-                                                <input type="text" class="btn btn-primary" name="submit" value="Login">
-                                            </div> -->
+                                                <input type="submit" class="btn btn-primary" name="submit" value="Login">
+                                            </div>
                                         </form>
 
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="register.php">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -51,18 +48,7 @@
                 </main>
             </div>
             <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
@@ -75,13 +61,15 @@ if (isset($_POST['submit'])) {
 $mail = $_POST['email'];
 $pass = $_POST['pass'];
 $klogin = mysqli_query($con,"SELECT * FROM reg WHERE `email` = '$mail' and `password` = '$pass'");
+//
 if(mysqli_num_rows($klogin) > 0){
   $fetch = mysqli_fetch_array($klogin);
-  $_SESSION['id'] = $fetch['id'];
-  $_SESSION['name'] = $fetch['fname'];
-  $_SESSION['lname'] = $fetch['lname'];
-  $_SESSION['email'] = $fetch['email'];
-  $_SESSION['phone'] = $fetch['phone_number'];
-  $_SESSION['password'] = $fetch['password'];
-  $_SESSION['userrole'] = $fetch['user-type'];
-}}?>
+$_SESSION['name'] = $fetch['fname'];
+$_SESSION['userrole'] = $fetch['user-type'];
+header('location: index.php?id='.$fetch['id']);
+}
+else if(mysqli_num_rows($klogin) == 0){
+
+    echo "login unsuccessful";
+}
+}?>

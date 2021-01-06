@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2020 at 10:45 PM
+-- Generation Time: Dec 31, 2020 at 01:38 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -123,43 +123,60 @@ CREATE TABLE `post_approval` (
 --
 
 CREATE TABLE `qutation` (
+  `company_name` varchar(50) NOT NULL,
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `qutation_number` varchar(30) NOT NULL,
   `qutation_to` varchar(50) NOT NULL,
   `srt_date` date NOT NULL,
-  `end_date` date NOT NULL
+  `end_date` date NOT NULL,
+  `technology` varchar(50) NOT NULL,
+  `feature` varchar(50) NOT NULL,
+  `requirement` varchar(50) NOT NULL,
+  `payment_method` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `qutation`
 --
 
-INSERT INTO `qutation` (`id`, `name`, `qutation_number`, `qutation_to`, `srt_date`, `end_date`) VALUES
-(1, 'hamza', 'h54maa321z', 'arisha071026@gmail.com', '0000-00-00', '0000-00-00'),
-(2, 'hamza', 'a4a35h12zm', 'hk071026@gmail.com', '0000-00-00', '0000-00-00'),
-(3, 'hamza', '23hmaa154z', 'hamzakhan.karachi@gmail.com', '0000-00-00', '0000-00-00'),
-(4, 'hamza', 'mah52a1z34', 'irzem.aptech@gmail.com', '0000-00-00', '0000-00-00'),
-(5, 'hamza', '3ama1zh245', 'hk071026@gmail.com', '0000-00-00', '0000-00-00'),
-(6, 'hamza', 'aa42hm13z5', 'shaheer.aptech@gmail.com', '0000-00-00', '0000-00-00'),
-(7, 'hamza', '2a1ah534mz', '', '0000-00-00', '0000-00-00'),
-(8, 'hamza', '453mz2aa1h', 'hammad@aptech.com', '0000-00-00', '0000-00-00'),
-(10, 'hamza', 'z2h5a1m3a4', 'hammad@aptech.com', '0000-00-00', '0000-00-00'),
-(12, 'hamza', '135h4a2maz', 'umair@gmail.com', '0000-00-00', '0000-00-00'),
-(14, 'hamza', 'az2h415a3m', 'meer@gmail.com', '0000-00-00', '0000-00-00'),
-(16, 'hamza', 'a1243hz5am', 'shahron@gmail.com', '0000-00-00', '0000-00-00'),
-(18, 'hamza', 'a1243hz5am', 'shahron@gmail.com', '0000-00-00', '0000-00-00'),
-(19, 'hamza', 'a14ha23z5m', '', '0000-00-00', '0000-00-00'),
-(20, 'hamza', 'zm512h4aa3', 'yousaf@gmail.com', '0000-00-00', '0000-00-00'),
-(21, 'hamza', 'zm512h4aa3', 'yousaf@gmail.com', '0000-00-00', '0000-00-00'),
-(22, 'hamza', '1ahm3a254z', 'hk071026@gmail.com', '0000-00-00', '0000-00-00'),
-(23, 'ismail', 'mhz34a25a1', 'ismail@gmail.com', '2020-12-15', '0000-00-00'),
-(24, 'osaka', '31aaz2hm45', 'osaka$yahoo.com', '2020-12-14', '0000-00-00'),
-(25, 'hamza', '2534ham1za', 'osama@gmail.com', '2020-12-14', '0000-00-00'),
-(26, 'hamza', 'zha3m4a215', 'farhan@gmail.com', '2020-12-14', '2020-12-17'),
-(27, 'hamza', '3m514aza2h', 'rizwan@gmail.com', '2020-12-14', '2020-12-31'),
-(31, 'hamza', 'h5421a3mza', '', '2020-12-15', '0000-00-00'),
-(32, 'hamza', '25aha14zm3', '', '2020-12-15', '0000-00-00');
+INSERT INTO `qutation` (`company_name`, `id`, `name`, `qutation_number`, `qutation_to`, `srt_date`, `end_date`, `technology`, `feature`, `requirement`, `payment_method`) VALUES
+('', 1, 'hamza', 'h54maa321z', 'arisha071026@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 2, 'hamza', 'a4a35h12zm', 'hk071026@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 3, 'hamza', '23hmaa154z', 'hamzakhan.karachi@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 4, 'hamza', 'mah52a1z34', 'irzem.aptech@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 5, 'hamza', '3ama1zh245', 'hk071026@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 6, 'hamza', 'aa42hm13z5', 'shaheer.aptech@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 7, 'hamza', '2a1ah534mz', '', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 8, 'hamza', '453mz2aa1h', 'hammad@aptech.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 10, 'hamza', 'z2h5a1m3a4', 'hammad@aptech.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 12, 'hamza', '135h4a2maz', 'umair@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 14, 'hamza', 'az2h415a3m', 'meer@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 16, 'hamza', 'a1243hz5am', 'shahron@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 18, 'hamza', 'a1243hz5am', 'shahron@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 19, 'hamza', 'a14ha23z5m', '', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 20, 'hamza', 'zm512h4aa3', 'yousaf@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 21, 'hamza', 'zm512h4aa3', 'yousaf@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 22, 'hamza', '1ahm3a254z', 'hk071026@gmail.com', '0000-00-00', '0000-00-00', '', '', '', ''),
+('', 23, 'ismail', 'mhz34a25a1', 'ismail@gmail.com', '2020-12-15', '0000-00-00', '', '', '', ''),
+('', 24, 'osaka', '31aaz2hm45', 'osaka$yahoo.com', '2020-12-14', '0000-00-00', '', '', '', ''),
+('', 25, 'hamza', '2534ham1za', 'osama@gmail.com', '2020-12-14', '0000-00-00', '', '', '', ''),
+('', 26, 'hamza', 'zha3m4a215', 'farhan@gmail.com', '2020-12-14', '2020-12-17', '', '', '', ''),
+('', 27, 'hamza', '3m514aza2h', 'rizwan@gmail.com', '2020-12-14', '2020-12-31', '', '', '', ''),
+('', 31, 'hamza', 'h5421a3mza', '', '2020-12-15', '0000-00-00', '', '', '', ''),
+('', 32, 'hamza', '25aha14zm3', '', '2020-12-15', '0000-00-00', '', '', '', ''),
+('', 33, 'danish', '1ai3sd45n2h', 'hk071026@gmail.com', '2020-12-21', '2020-12-25', '', '', '', ''),
+('', 34, 'danish', '4sh125ina3d', 'hk071026@gmail.com', '2020-12-21', '2021-01-01', '', '', '', ''),
+('', 35, 'danish', 'an5hd23i1s4', 'hk071026@gmail.com', '2020-12-21', '2020-12-30', '', '', '', ''),
+('', 36, 'danish', '3521sahdni4', 'hammad@aptech.com', '2020-12-21', '2021-01-07', '', '', '', ''),
+('', 37, 'hamza', 'h5321z4aam', 'saifahmed@hotmail.com', '2020-12-28', '2020-12-31', '', '', '', ''),
+('', 38, 'hamza', 'mz153aa24h', 'hk071026@gmail.com', '2020-12-29', '2020-12-16', '', '', '', ''),
+('', 39, 'shahid', 'a1ihsh5423d', 'mehraaj@gmail.com', '2020-12-29', '2020-12-08', '', '', '', ''),
+('my company', 40, 'shahid', '214sa5hdhi3', 'mehraaj@gmail.com', '2020-12-31', '2020-12-22', '', '', '', ''),
+('company&co', 41, 'shahid', 'h2s4ih3d5a1', 'hammad@aptech.com', '2020-12-31', '2020-12-22', '', '', '', ''),
+('my company', 42, 'shahid', '3s421ha5dih', 'irzem.aptech@gmail.com', '2020-12-31', '2020-12-17', '', '', '', ''),
+('my company', 43, 'shahid', '25a4sdi1h3h', 'irzem.aptech@gmail.com', '2020-12-31', '2020-12-17', '', '', '', ''),
+('my company', 44, 'shahid', '23sad1h5h4i', 'irzem.aptech@gmail.com', '2020-12-31', '2020-12-17', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -194,7 +211,13 @@ INSERT INTO `reg` (`id`, `fname`, `lname`, `phone_number`, `email`, `password`, 
 (52, 'arisha', 'rashid', 0, 'arishar071026@gmail.com', 'conpass', 0, '', 'Active'),
 (53, 'uzair', 'ahmed', 0, 'ua@gmail.com', 'uzair', 0, '', 'Inactive'),
 (54, 'arisha', 'rashid', 0, 'rashid@gmail.com', 'heyheyhey', 0, '', ''),
-(55, '', '', 0, '', '', 0, '', '');
+(55, '', '', 0, '', '', 0, '', ''),
+(56, 'hamza', 'rashid', 0, 'hr@gmail.com', 'hamzarashid', 0, '', ''),
+(57, 'hamza', 'rashid', 0, 'hamras@gmail.com', 'hamzarashid', 0, '', ''),
+(58, 'usman', 'khan', 0, 'usmkhn@gmail.com', 'ariham4321', 0, '', ''),
+(59, 'umaima', 'malik', 0, 'um@gmail.com', 'umaima', 0, '', ''),
+(60, 'shahid', 'khan', 0, 'sk@yahoo.com', 'shahid', 0, '', ''),
+(61, 'shahid', 'jamal', 0, 'sj@gmail.com', 'shahidj', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -330,7 +353,7 @@ CREATE TABLE `ticket` (
   `screenshot` varchar(100) NOT NULL,
   `id` int(11) NOT NULL,
   `ticket_id` varchar(20) NOT NULL,
-  `status` int(11) NOT NULL COMMENT '0 for cancelled | 1 for pending | 2 for completed'
+  `status` int(11) NOT NULL COMMENT '0 for pending | 1 for completed | 2 for cancelled'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -343,7 +366,7 @@ INSERT INTO `ticket` (`name`, `email`, `subject`, `dept`, `priority`, `message`,
 ('arisha rashid', 'arisha071026@gmail.com', 'for conformation', '6', 'High', 'this to check record insertion', 'Untitled.png', 3, ' oomrfnonrcfoita', 0),
 ('abdul ahd ', 'abdahad@gmail.com', 'introduction', '1', 'High', 'to check', 'Untitled.png', 4, 'notrinoictdu', 0),
 ('shaheer ansari', 'shaheerans@gmail.com', 'testing', 'support', 'Medium', 'this is for testing purpose', 'wallpaper-download-8.jpg', 5, 'ngsetti', 2),
-('khurram shehzad', 'ks@gmail.com', 'complain', 'support', 'Medium', 'the site is lagging alot kindly resolve this issue', 'images.jpg', 6, 'l3o2cp1n54aim', 2),
+('khurram shehzad', 'ks@gmail.com', 'complain', 'support', 'Medium', 'the site is lagging alot kindly resolve this issue', 'images.jpg', 6, 'l3o2cp1n54aim', 0),
 ('iffat iqbal', 'ii@gmail.com', 'miscommunication', 'support', 'Medium', 'there was a misunderstanding', 'images.jpg', 7, 'ao1tn24muncm5oicsim3', 0),
 ('obaid khan', 'ok@gmail.com', 'testing', 'support', 'Medium', 'to check', 'wallpaper-download-8.jpg', 8, '42titg1s5ne3', 1),
 ('irzem subhan', 'is@gmail.com', 'for conformation', 'support', 'Medium', 'for conformation', 'uploads/./images.jpg', 9, '2mnr1ot aoorfocf354n', 1),
@@ -363,9 +386,9 @@ INSERT INTO `ticket` (`name`, `email`, `subject`, `dept`, `priority`, `message`,
 ('hamza khan', 'hk@gmail.com', '', 'support', 'Medium', '', '', 26, '35142', 0),
 ('abdul ahd ', 'hamzakhn@gmail.com', 'introduction', 'support', 'Medium', '', '', 27, '5tn2uon4cri31todi', 0),
 ('hamza khan', 'talha@gmail.com', 'testing', 'support', 'Medium', 'hello', '', 28, 'n32tsgi45et1', 0),
-('$name', '$email', '$subj', 'abuse', '$priority', '$msg', '$image_name', 29, '$tickid', 0),
-('hamza', 'talha@gmail.com', 'testing', 'billing', 'High', 'hello', '', 30, 'tn153its24eg', 0),
-('hamza khan', 'hk@gmail.com', 'introduction', 'billing', 'High', 'ahsausai', '', 31, 'n5ct2tid431ionuor', 0),
+('khurzan khan', 'humzakhan.karachi@gmail.com', 'bug', 'Billing', 'High', 'there is a bug in your site', '$image_name', 29, '$tickid', 2),
+('hamza', 'talha@gmail.com', 'testing', 'support', 'Medium', 'hello', '', 30, 'tn153its24eg', 2),
+('hamza khan', 'hk@gmail.com', 'introduction', 'support', 'Medium', 'ahsausai', '', 31, 'n5ct2tid431ionuor', 2),
 ('araiz', 'araiz@gmail.com', 'yyyyyy', 'support', 'Medium', '', '', 32, 'yyy15yyy423', 0),
 ('araiz', 'araiz@gmail.com', 'maths', 'support', 'High', 'hello bear naam araiz ha', '', 33, 'sa23ht451m', 0),
 ('farhan iftekhar', 'farhan@hotmail.com', 'query', 'support', 'Medium', 'i like to know chdiewjidow jidswkswkspow wkdsowkspwkq', '', 34, '1rqy32e45u', 0),
@@ -374,7 +397,13 @@ INSERT INTO `ticket` (`name`, `email`, `subject`, `dept`, `priority`, `message`,
 ('ijlal khan', 'ijlal@gmail.com', 'misbehave', 'support', 'Medium', 'dmxi,xsi,xowx ,ow,oewd,owd,wodwl', 'uploads/images.jpg', 38, 'ivehma13s24b5e', 0),
 ('', '', '', 'support', 'Medium', '', '', 39, '12345', 0),
 ('', '', '', 'support', 'Medium', '', '', 40, '34215', 0),
-('farhan iftekhar', 'farhan@hotmail.com', 'complain', 'abuse', 'High', 'msmismismxdsmc,dcmdod', 'uploads/logo.jpg', 41, 'n34i1ol2p5acm', 0);
+('farhan iftekhar', 'farhan@hotmail.com', 'complain', 'abuse', 'High', 'msmismismxdsmc,dcmdod', 'uploads/logo.jpg', 41, 'n34i1ol2p5acm', 0),
+('hamza khan', 'db@gmail.com', 'miscommunication', 'support', 'Medium', 'vtyhjjimio', 'uploads/images.jpg', 42, 'm3cmc5o1tmi4nsn2uiao', 2),
+('hamza khan', 'hamk@gmail.com', 'checking', 'sales', 'Medium', 'hello mr xnxsmos', 'uploads/logo.png', 43, '4g25kce3in1hc', 0),
+('shiza khan', 'shiza@gmail.com', 'hello', 'support', 'Medium', 'hdsdiwmxiw', 'uploads/logo.jpg', 44, 'e4o52ll31h', 2),
+('aezaz rafiq', 'aezaz@gmail.com', 'introduction', 'support', 'Medium', 'hello im aezaz', '', 45, 'rdniuo4nt23cto15i', 0),
+('hamza khan', 'hk@gmail.com', 'jijokkp', 'support', 'Medium', 'wrt7ujo okp klokp', 'uploads/laptop.png', 46, 'ip2kkoj531j4', 2),
+('hamza khan', 'hk@gmail.com', 'jijokkp', 'support', 'Medium', 'wrt7ujo okp klokp', 'uploads/laptop.png', 47, 'j21jokikp543', 2);
 
 -- --------------------------------------------------------
 
@@ -490,13 +519,13 @@ ALTER TABLE `post_approval`
 -- AUTO_INCREMENT for table `qutation`
 --
 ALTER TABLE `qutation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `reg`
 --
 ALTER TABLE `reg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `tbl_karigar`
@@ -514,7 +543,7 @@ ALTER TABLE `tbl_rating`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
