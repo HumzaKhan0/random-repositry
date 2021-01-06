@@ -14,7 +14,6 @@ $data2 = $_GET[$key] = base64_decode(urldecode($id));
 }
 
 // ================== return to data value ========================                            
- echo 'hello'.$_SESSION['userrole'];
 ?>
 
 <!DOCTYPE html>
@@ -139,7 +138,7 @@ c/o CEO Name</textarea>
 	
 		  <?php $tbldata ='
 		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr tooltip-test" title="Click to change item name"><textarea>Item Namess</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		      <td class="item-name"><div class="delete-wpr tooltip-test" title="Click to change item name"><textarea>Item Name</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 		      <td class="descriptiontool tip-test" title="Click to change Description"><textarea>Description</textarea></td>
 		      <td><textarea class="cost tooltip-test" title="Click to change Price">$00.00</textarea></td>
 		      <td><textarea class="qty tooltip-test" title="Click to change Quantity">0</textarea></td>

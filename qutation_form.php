@@ -116,9 +116,9 @@ $(function(){
         <div class="form-group col-sm-4">
             <label for="inputName">Qutation Number</label>
             <?php $qnumb = str_shuffle($_SESSION['name'].'12345');
-            $link = "qutatiion_page_try.php?tickid=".urlencode(base64_encode($qnumb));;          
+            $link = "qutatiion_page.php?tickid=".urlencode(base64_encode($qnumb));          
                 ?>
-            <input id="invoicenum" type="text" name="qnum" placeholder="qutation number" value="<?php echo $qnumb ?>" class="form-control">
+            <input id="invoicenum" type="text" name="qnum" placeholder="qutation number" value="<?php echo $qnumb ?>" class="form-control" readonly="">
         </div>
         <div class="form-group col-sm-4">
             <label for="inputEmail">Qutation To</label>
@@ -170,6 +170,7 @@ $(function(){
     $qnum = $_POST['qnum'];
 //echo $qnum;
     $end_date = $_POST['end_date'];
+    
     //echo $end_date;
     if (empty($qto) || empty($end_date)) {
         echo "<script>
@@ -182,7 +183,9 @@ alert ('Please Fill out the fields')
     $select = mysqli_query($con,"SELECT * from qutation where `qutation_number` = '3m514aza2h'");
 $array = mysqli_fetch_array($select);
 //echo $array['id'];
-echo $link;
+$idget = mysqli_query($con,"SELECT * from qutation where `qutation_number` = '$qnum'");
+$show = mysqli_fetch_array($idget);
+$_SESSION['qtnumb'] = $show['company_name'];
 header('location:'.$link);
     }
 else if(!$insert)
