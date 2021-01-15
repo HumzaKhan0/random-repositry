@@ -83,6 +83,11 @@ echo $qtnumb;
  $select = mysqli_query($con,"SELECT * from qutation where `company_name` = '$qtnumb'");
 $get = mysqli_fetch_assoc($select); 
 $id = $get['id'];
+$pm = "";
+if (isset($_GET['id'])) {
+$pm = $get['payment_method'];    
+}
+
 ?>
   
 <div class="row w-75 d-flex mx-auto col-md-* mt-5 mb-5 justify-content-center">
@@ -111,28 +116,29 @@ $id = $get['id'];
                                                 <div class="col-md-6">
                                                     <div class="form-group">
             <div class="col-lg-5 col-md-5 col-sm-5 mt-5 bg-primary text-white"><b>Technology</b></div>
-                                   <input class="mt-3" type="text" name="technology">
+                                   <input class="mt-3" type="text" name="technology" value="<?php echo $get['technology'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 d-flex flex-row-reverse">
                                                     <div class="form-group">
             <div class="col-lg-12 col-md-12 col-sm-12 mt-5 d-flex justify-content-end bg-primary text-white"><b>Features</b></div>
-                                                        <input class="mt-3" type="text" name="features">
+                                                        <input class="mt-3" type="text" name="features" value="<?php echo $get['feature'] ?>">
                                                     </div>
                                                 </div>
                                             </div>
             <div class="form-row"> <div class="col-md-6"> <div class="form-group"> <div
 class="col-lg-5 col-md-5 col-sm-5 mt-5 bg-primary
 text-white"><b>Requirement</b></div> <input class="mt-3" type="text"
-name="requirement"> </div> </div> <div class="col-md-6 d-flex
+name="requirement" value="<?php echo $get['requirement'] ?>"> </div> </div> <div class="col-md-6 d-flex
 flex-row-reverse"> <div class="form-group"> <div class="col-lg-12 col-md-12
 col-sm-12 mt-5 d-flex justify-content-end bg-primary text-white"><b>Payment
-Method</b></div> <select name="status" id="inputPriority" style="width: 180px"
+Method</b></div> <?php if (empty($pm)) { ?><select name="status" id="inputPriority" style="width: 180px"
 value="<?php echo $status ?>" class="form-control mt-3"> <option value="Fund
 Transfer"> Fund Transfer </option> <option value="Direct Deposit"
 selected="selected"> Direct Deposit </option> <option value="Money Transfer">
-Money Transfer </option> </select> </div> </div> </div>
-                    <div class="col"></div><div class="col text-center mb-5">  <button type="submit" name="submit" class="btn blue">Submit</button></div><div class="col"></div>
+Money Transfer </option> </select><?php } else if(!empty($pm)){?><input class="mt-3" type="text"
+name="requirement" value="<?php echo $get['payment_method'] ?>"><?php } ?> </div> </div> </div>
+                    <?php if (isset($_GET['id'])) { } else{?><div class="col"></div><div class="col text-center mb-5">  <button type="submit" name="submit" class="btn blue">Submit</button></div><div class="col"></div> <?php } ?>
 </form> 
 <?php if(isset($_POST['submit'])){
 $qdate = date('y.m.d');
@@ -143,13 +149,6 @@ $technology = $_POST['technology'];
 $features = $_POST['features'];
 $requirement = $_POST['requirement'];
 $paymeth = $_POST['status'];
-echo $sdate;
-echo $expdate;
-echo $qnum;
-echo $technology;
-echo $features;
-echo $requirement;
-echo $paymeth;
 $update = mysqli_query($con,"UPDATE qutation SET `technology` = '$technology',`feature` = '$features' , `requirement` = '$requirement', `payment_method` = '$paymeth' Where `id` = '$id'");
 } ?>
 </div>

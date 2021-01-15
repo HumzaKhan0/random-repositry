@@ -136,15 +136,15 @@ c/o CEO Name</textarea>
 		  </tr>
 		  
 	
-		  <?php $tbldata ='
+		  <?php echo $tbldata ='
 		  <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr tooltip-test" title="Click to change item name"><textarea>Item Name</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 		      <td class="descriptiontool tip-test" title="Click to change Description"><textarea>Description</textarea></td>
 		      <td><textarea class="cost tooltip-test" title="Click to change Price">$00.00</textarea></td>
-		      <td><textarea class="qty tooltip-test" title="Click to change Quantity">0</textarea></td>
-		      <td><span class="price">$000.00</span></td>
+		      <td><textarea class="qty tooltip-test" title="Click to change Quantity">1</textarea></td>
+		      <td><span class="price tooltip-test" title="Price cannot be changed">$000.00</span></td>
 		  </tr>
-          ';echo $tbldata ?>
+          '; ?>
 		  
 		  <tr id="hiderow">
 		    <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
@@ -174,7 +174,7 @@ c/o CEO Name</textarea>
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line balance">Balance Due</td>
-		      <td class="total-value balance"><div class="due">$000.00</div></td>
+		      <td class="total-value balance"><div class="due tooltip-test" title="balance due cannot be changed">$000.00</div></td>
 		  </tr>
 		
 		</table>

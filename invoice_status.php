@@ -34,7 +34,7 @@ if(isset($_POST["query"]))
 else
 {
     $query = "
-    SELECT * FROM ticket ORDER BY id ASC";
+    SELECT * FROM qutation ORDER BY id ASC";
 }
 $result = mysqli_query($con, $query);    ?>
 
@@ -98,47 +98,53 @@ $(function(){
                     <div class="container-fluid">
                         <h1 class="mt-4 text-center"><?php  ?></h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active text-black"><a href="index.php">Index</a>\<a href="#">Sales</a></li>
+                            <li class="breadcrumb-item active text-black"><a href="index.php">Index </a>\<a href="#">Qutation </a></li>\<a href="#">Status</a></li>
                         </ol>
                         <div class="row">
 
-    <?php $dept = $_GET['dept'];
-     $subj = mysqli_query($con,"SELECT * from ticket where `dept` = '$dept'");
+    <?php
+     $subj = mysqli_query($con,"SELECT * from `qutation`");
     echo'     
                             <div class="card-body">
 
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Ticket Id</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Response</th>
+                                                <th>qutation Number</th>
+                                                <th>Company Name</th>
+                                                <th>qutationc To</th>
+                                                <th>Srt Date</th>
+                                                <th>Requirement</th>
+                                                <th>Features</th>
+                                                <th>Technology</th>
+                                                <th>End Date</th>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Ticket Id</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Response</th>
+                                                <th>qutation Number</th>
+                                                <th>Company Name</th>
+                                                <th>qutationc To</th>
+                                                <th>Srt Date</th>
+                                                <th>Requirement</th>
+                                                <th>Features</th>
+                                                <th>Technology</th>
+                                                <th>End Date</th>
                                         </tfoot>
                                         <tbody>
 ';
     while ($fetch = mysqli_fetch_assoc($subj)) {
         $id = $fetch['id'];
-        $incode = urlencode(base64_encode( $id));
 ?>
                       
                                             <tr>
-                                                <td><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
-                                                <td><h6><?php echo $fetch['name']; ?></h6></a></td>
-                                                <td><h6><?php echo $fetch['email']; ?></h6></a></td>
-                                                <td><div class="dropdown">
-  
-  <a href="ticketform.php?id=<?php echo $incode ?>" class="btn bg-dark text-white">
-    Response
-  </a>
-</div></td>
+                                                <td><a href="qutatiion_page.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['qutation_number']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['company_name']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['qutation_to']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['srt_date']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['requirement']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['feature']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['technology']; ?></h6></a></td>
+                                                <td><h6><?php echo $fetch['end_date']; ?></h6></a></td>
                                                 </tr>
                                             
 

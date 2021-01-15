@@ -133,13 +133,14 @@ $(function(){
                                         <tbody>
 ';
     while ($fetch = mysqli_fetch_assoc($subj)) {
-        $id = $fetch['id'];
+         $id = $fetch['id'];
+                        $incode = urlencode(base64_encode( $id));
 ?>
                       
                                             <tr>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
                                                 <?php if ($fetch['status'] == 0) {
                                                 echo '<td><h6>Pending</h6></a></td>';
                                                 }
@@ -187,13 +188,14 @@ $(function(){
                                         <tbody>
 ';
     while ($fetch = mysqli_fetch_assoc($subj)) {
-        $id = $fetch['id'];
+         $id = $fetch['id'];
+                        $incode = urlencode(base64_encode( $id));
 ?>
                       
                                             <tr>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
                                                 <?php if ($fetch['status'] == 0) {
                                                 echo '<td><h6>  Pending</h6></a></td>';
                                                 }
@@ -243,13 +245,15 @@ $(function(){
                                         <tbody>
 ';
     while ($fetch = mysqli_fetch_assoc($subj)) {
-        $id = $fetch['id'];
+         $id = $fetch['id'];
+                        $incode = urlencode(base64_encode( $id));
+                $incode = urlencode(base64_encode( $id));
 ?>
                       
                                             <tr>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
+                                                <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
                                                 <?php if ($fetch['status'] == 0) {
                                                 echo '<td><h6>  Pending</h6></a></td>';
                                                 }
@@ -300,13 +304,15 @@ $(function(){
                                         <tbody>
 ';
     while ($fetch = mysqli_fetch_assoc($subj)) {
-        $id = $fetch['id'];
+         $id = $fetch['id'];
+                        $incode = urlencode(base64_encode( $id));
+            $incode = urlencode(base64_encode($id));
 ?>
-                      
-                                            <tr>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
-                                                <td><a href="ticketform.php?id=<?php echo $fetch['id'] ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
+                                           <tr>
+                     <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['ticket_id']; ?></h6></a></td>
+                     <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['name']; ?></h6></a></td>
+                     <td><a href="ticketform.php?id=<?php echo $incode; ?>"><h6><?php echo $fetch['email']; ?></h6></a></td>
+                                                 
                                                 <?php if ($fetch['status'] == 0) {
                                                 echo '<td><h6>  Pending</h6></a></td>';
                                                 }

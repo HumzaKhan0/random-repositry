@@ -72,7 +72,7 @@ $result = mysqli_query($con, $query);    ?>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="qutation_form.php">Generate</a>
-                                    <a class="nav-link" href="#">Status</a>
+                                    <a class="nav-link" href="qutatiion_status.php">Status</a>
                                 </nav>
                             </div> 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

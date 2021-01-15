@@ -102,8 +102,8 @@ $(function(){
 };</script>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid">
-                        <h1 class="mt-4 text-center"><?php  ?></h1>
+                    <div class="container-fluid text-center">
+                        <h1 class="mt-4"><?php  ?></h1>
                         <center><h1>qutation Form</h1></center>
 <center><form method="POST" enctype="multipart/form-data" role="form">
     <div class="row">

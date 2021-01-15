@@ -1,4 +1,11 @@
-<?php include 'include/connection.php'; ?>
+<?php include 'include/connection.php'; 
+if (isset($_GET['id'])) {
+$id = $_GET['id'];
+}
+foreach ($_GET as $key => $id) {
+$data2 = $_GET[$key] = base64_decode(urldecode($id));
+}
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0068)https://www.hosterpk.com/clientarea/submitticket.php?step=2&deptid=1 -->
 <html lang="en" class="webkit chrome   win  js landscape pc"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,17 +40,12 @@
 <![endif]-->
 
 <script src="./Submit Ticket - HosterPK Pvt Ltd_files/scripts.min.js.download"></script>
-
-
-    
-
 </head>
 <body data-phone-cc-input="" class="">
 <div class="mm-page"><div id="main-body">
     <div class="container">
         <div class="row">
             <div style="margin-left: auto; margin-right: auto; width: 95%; margin-top:10px;">
-
                                 <!-- Container for main page display content -->
 <?php
 $name = '';
@@ -61,8 +63,11 @@ if(isset($_GET['id'])){
 
 
 <form method="POST" enctype="multipart/form-data" role="form">
-<?php $data = mysqli_query($con,"SELECT * from ticket where `id` = '$id'");
+<?php 
+if (isset($_GET['id'])) {
+$data = mysqli_query($con,"SELECT * from ticket where `id` = '$data2'");
                              $get = mysqli_fetch_assoc($data);
+}
 if(isset($_GET['id'])){
     $name = $get['name'];
     $mail = $get['email'];
@@ -70,6 +75,8 @@ if(isset($_GET['id'])){
     $dept = $get['dept'];
     $priority = $get['priority'];
     $msg = $get['message'];
+    $dt = $get['dept'];
+    $pr = $get['priority'];
 }                                                         
 
                              ?>
@@ -92,8 +99,9 @@ if(isset($_GET['id'])){
     </div>
     <div class="row">
         <div class="form-group col-sm-3">
-            <label for="inputDepartment">Department</label>
-            <select name="dept" id="inputDepartment" class="form-control" value="<?php echo $dept ?>" onchange="refreshCustomFields(this)">
+<label for="inputDepartment">Department</label>
+            <?php if (empty($dt)) { ?>
+            <select name="dept" id="inputDepartment" class="form-control" onchange="refreshCustomFields(this)">
                                     <option value="sales">
                         Sales
                     </option>
@@ -107,9 +115,11 @@ if(isset($_GET['id'])){
                         Support
                     </option>
                             </select>
+                            <?php } else if(!empty($dt)){?><input type="text" name="dept" id="inputEmail" value="<?php echo $dt ?>"><?php } ?>
         </div>
                 <div class="form-group col-sm-3">
             <label for="inputPriority">Priority</label>
+            <?php if (empty($dt)) { ?>
             <select name="priority" id="inputPriority" value="<?php echo $priority ?>" class="form-control">
                 <option value="High">
                     High
@@ -121,6 +131,7 @@ if(isset($_GET['id'])){
                     Low
                 </option>
                 </select>
+                <?php } else if(!empty($dt)){?><input type="text" name="priority" id="inputEmail" value="<?php echo $pr ?>"><?php } ?>
         </div>
     </div>
     <div class="form-group">
@@ -172,9 +183,9 @@ else{echo '       <input type="file" name="image" id="inputAttachments" class="f
     <p class="text-center">
         <?php if(isset($_GET['id'])) {
       
-            echo '<button type="submit" name="alter" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button>';
+            echo '<button type="submit" name="alter" class="btn btn-primary mr-5">Update</button>';
 
-                        echo '<button type="button" class="ml-5 btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Reply</button>';
+                        echo '<button type="button" class="ml-5 btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Reply</button>';
         } 
 else {
                 echo '        <input type="submit" name="submit" id="openTicketSubmit" value="Submit" class="btn btn-primary">';
@@ -199,11 +210,10 @@ else {
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Message:</label>
-            <!-- <input type="text" class="form-control" name="msg" id="message-text" style="height: 150px"> -->
-          <input type="text" name="mssg">
+            <input type="text" class="form-control" name="msg" id="message-text" style="height: 150px">
+          <!-- <input type="text" name="mssg"> -->
           </div>
-        <?php $mssg = $_POST['mssg'];
-        echo $mssg;?>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -232,7 +242,7 @@ else {
     $msg = $_POST['message'];
     $tickid = $get['ticket_id'];
     $image_name = $get['screenshot'];
-   $update = mysqli_query($con, "UPDATE ticket SET `name` = '$name', `email`='$email',`subject`='$subj', `dept`='$dept',`priority`='$priority',`status`='$status',`message`='$msg',`ticket_id`='$tickid' where id = '$id'");
+   $update = mysqli_query($con, "UPDATE ticket SET `name` = '$name', `email` = '$email',`subject`='$subj', `dept`='$dept',`priority`='$priority',`status`='$status',`message`='$msg',`ticket_id`='$tickid' where id = '$id'");
 if ($update) {
 echo '<div class="alert alert-success" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -269,7 +279,7 @@ $images = $uploads.$image_name;
                            echo "<script> alert('Please fill out the fields'); </script>";
                           }
                           else{
-   $insert = mysqli_query($con,"INSERT into ticket (name,email,subject,dept,priority,message,ticket_id,status) values('$name','$email','$subj','$dept','$priority','$msg','$tickid','pending')");
+   $insert = mysqli_query($con,"INSERT into ticket (`name`,`email`,`subject`,`dept`,`priority`,`message`,`ticket_id`,`status`) values('$name','$email','$subj','$dept','$priority','$msg','$tickid','pending')");
    if ($insert) {
 echo $success = '<div class="alert alert-success" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
